@@ -45,7 +45,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "7fa265ee-5764-4b29-9f6d-a7aeb0d88c58",
+                    "id": "9ccd090a-75bc-4616-b85b-bd8ace662a89",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -56,7 +56,7 @@
                 },
                 {
                     "name": "",
-                    "id": "c17f3352-59be-465f-9498-cdd47ab1398e",
+                    "id": "6cbd1cb4-5890-498e-b7ef-dfd59fd47b28",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
@@ -67,7 +67,7 @@
                 },
                 {
                     "name": "",
-                    "id": "29f96bea-281a-4692-8c7d-5aa04ee78561",
+                    "id": "4aeef1c7-22e5-4659-a528-5ea1b7f830d1",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
@@ -90,22 +90,5 @@
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
-                {
-                    "devicePath": "<DualShock4GamepadAndroid>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<XInputController>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }

@@ -19,9 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var allGamepads = Gamepad.all;
         transform.position += new Vector3(movementInput.x * currentPlayerSpeed * Time.deltaTime, movementInput.y * currentPlayerSpeed * Time.deltaTime, 0);
-        Debug.Log(allGamepads);
     }
 
     public void OnMove(InputAction.CallbackContext ctx)

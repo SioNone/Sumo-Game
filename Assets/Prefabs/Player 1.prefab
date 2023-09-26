@@ -223,7 +223,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 944a2158-9327-4779-83af-cd47d320b45c
     m_ActionName: Gameplay/Powerup
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
