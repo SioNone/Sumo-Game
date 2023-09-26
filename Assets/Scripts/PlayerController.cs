@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float basePlayerSpeed, currentPlayerSpeed, playerDashForce, playerDashCooldown, nextDash, playerLife;
     public GameObject respawn;
     private Rigidbody2D playerRigidbody;
+    private Vector2 movementInput;
 
     void Start()
     {
@@ -17,14 +19,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * currentPlayerSpeed * Time.deltaTime, Input.GetAxis("Vertical") * currentPlayerSpeed * Time.deltaTime, 0);
+        var allGamepads = Gamepad.all;
+        transform.position += new Vector3(movementInput.x * currentPlayerSpeed * Time.deltaTime, movementInput.y * currentPlayerSpeed * Time.deltaTime, 0);
+        Debug.Log(allGamepads);
+    }
 
-        if (Input.GetKey("joystick button 1") && Time.time > nextDash)
-        {
-            nextDash = Time.time + playerDashCooldown;
-            Debug.Log("X Pressed");
-            playerRigidbody.AddForce(transform.up * playerDashForce, ForceMode2D.Impulse);
-        } 
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        movementInput = ctx.ReadValue<Vector2>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
