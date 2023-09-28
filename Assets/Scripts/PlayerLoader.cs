@@ -18,6 +18,9 @@ public class PlayerLoader : MonoBehaviour
     // List of player healthbars
     public GameObject[] playerHealthbars;
 
+    // List of player pickup Indicators
+    public GameObject[] playerIndicators;
+
     // How many players remain
     public static int playersRemain;
 
@@ -26,6 +29,10 @@ public class PlayerLoader : MonoBehaviour
 
     // Game Win Screen
     public GameObject gameWinScreen;
+
+    // Pickup Cooldown
+    public float pickupCooldown, nextPickup;
+    public GameObject[] pickupList;
 
     void Start()
     {
@@ -46,6 +53,27 @@ public class PlayerLoader : MonoBehaviour
             // Accesses the player script
             playerScript = newPlayer.GetComponent<PlayerController>();
 
+            // Change colour of headband (Maybe a neater way of doing this)
+            if (i == 0)
+            {
+                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 0f, 0f, 1f);
+            } 
+            else if (i == 1)
+            {
+                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(0f, 0f, 1f, 1f);
+            }
+            else if (i == 2)
+            {
+                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(0f, 1f, 0f, 1f);
+            } 
+            else if (i == 3)
+            {
+                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 0f, 1f, 1f);
+            }
+
+            // Assign Pickup Indicator to player
+            playerScript.pickupIndicator = playerIndicators[i];
+
             // Assign the healthbar to the player
             playerScript.healthBar = playerHealthbars[i].transform.GetChild(1).gameObject;
         }
@@ -53,6 +81,13 @@ public class PlayerLoader : MonoBehaviour
 
     void Update()
     {
+        // Pickup Cooldown stuff
+        if (Time.time > nextPickup)
+        {
+            nextPickup = Time.time + pickupCooldown;
+            Instantiate(pickupList[Random.Range(0, pickupList.Length)], new Vector3(0, 0, 0), Quaternion.identity);
+        }
+
         // If one or somehow less players remain set the game win screen to true
         if (playersRemain <= 1)
         {

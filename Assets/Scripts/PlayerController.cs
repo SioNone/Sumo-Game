@@ -6,13 +6,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Player stats
-    public float basePlayerSpeed, currentPlayerSpeed, playerLife, force, pushCooldown;
+    public float basePlayerSpeed, currentPlayerSpeed, buffPlayerSpeed, playerLife, force, pushCooldown;
     public float nextPush = 0;
+
+    // Player Pickup Variables
+    public bool forcePickup, speedPickup;
+    public float speedPickUpDuration, speedPickUpLength;
 
     // Player respawn point
     public GameObject respawn;
 
     public GameObject healthBar;
+    public GameObject pickupIndicator;
 
     private float healthBarSectionSize;
 
@@ -24,6 +29,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentPlayerSpeed = basePlayerSpeed;
+        buffPlayerSpeed = basePlayerSpeed * 1.25f;
         respawn = GameObject.FindWithTag("Respawn");
         healthBarSectionSize = healthBar.transform.localScale.x / 3;
     }
@@ -40,6 +46,30 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
         Debug.DrawRay(transform.position, transform.right);
 
+        // Pickup Indicator Stuff
+
+        if (speedPickup || forcePickup)
+        {
+            pickupIndicator.SetActive(true);
+        } 
+        else
+        {
+            pickupIndicator.SetActive(false);
+        }
+
+        // Speed Pickup Stuff
+
+        if (speedPickup)
+        {
+            currentPlayerSpeed = buffPlayerSpeed;
+        } 
+        
+        if (Time.time >= speedPickUpLength)
+        {
+            currentPlayerSpeed = basePlayerSpeed;
+            speedPickup = false;
+        }
+
         // If Raycast Hits an object, and that object is tagged player, and its less than or equal to 1 unit away from the player, and left shoulder is pressed
         if(hit.collider && hit.collider.tag == "Player" && hit.distance <= 1f && leftShoulder && Time.time > nextPush)
         {
@@ -48,8 +78,19 @@ public class PlayerController : MonoBehaviour
             // Find direction for other object to be pushed in
             var direction = (transform.position - hit.transform.position).normalized;
 
-            // Add Force to that object in the desired direction
-            hit.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * force, ForceMode2D.Impulse);
+            // If the player is buffed by a pickup that increases their push force
+            if (forcePickup)
+            {
+                hit.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * (force * 1.5f), ForceMode2D.Impulse);
+                Debug.Log("Extra Force");
+                forcePickup = false;
+            } 
+            else
+            {
+                // Add Force to that object in the desired direction
+                hit.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * force, ForceMode2D.Impulse);
+                Debug.Log("Normal Force");
+            }
 
             // Reset left shoulder
             leftShoulder = false;
@@ -113,12 +154,31 @@ public class PlayerController : MonoBehaviour
             // Set its position to origin
             transform.position = respawn.transform.position;
 
+            // Sets velocity to 0 so none is conserved after respawn
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
             // Remove 1 health
             playerLife -= 1;
 
             // Change healthbar size
             var newHealthBarSize = healthBarSectionSize * playerLife;
             healthBar.transform.localScale = new Vector3(newHealthBarSize, 1, 0);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Force Pickup")
+        {
+            forcePickup = true;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Speed Pickup")
+        {
+            speedPickUpLength = Time.time + speedPickUpDuration;
+            speedPickup = true;
+            Destroy(other.gameObject);
         }
     }
 }

@@ -593,12 +593,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basePlayerSpeed: 5
   currentPlayerSpeed: 0
+  buffPlayerSpeed: 0
   playerLife: 3
   force: 10
   pushCooldown: 1
   nextPush: 0
+  forcePickup: 0
+  speedPickup: 0
+  speedPickUpDuration: 5
+  speedPickUpLength: 0
   respawn: {fileID: 0}
   healthBar: {fileID: 0}
+  pickupIndicator: {fileID: 0}
 --- !u!114 &1037416534590181084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,7 +888,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
