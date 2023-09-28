@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         // If Raycast Hits an object, and that object is tagged player, and its less than or equal to 1 unit away from the player, and left shoulder is pressed
         if(hit.collider && hit.collider.tag == "Player" && hit.distance <= 1f && leftShoulder && Time.time > nextPush)
         {
-            Debug.Log("Pushed");
             nextPush = Time.time + pushCooldown;
 
             // Find direction for other object to be pushed in
@@ -57,7 +56,6 @@ public class PlayerController : MonoBehaviour
         } 
         else if (!hit.collider && leftShoulder && Time.time > nextPush)
         {
-            Debug.Log("Miss");
             nextPush = Time.time + pushCooldown;
             leftShoulder = false;
         }
@@ -68,18 +66,28 @@ public class PlayerController : MonoBehaviour
             float heading = Mathf.Atan2(aimInput.y, aimInput.x);
             transform.rotation = Quaternion.Euler(0f, 0f, heading * Mathf.Rad2Deg);
         }
+
+        // If player has no health destroy them and remove 1 player from the player count
+        if (playerLife <= 0)
+        {
+            Destroy(gameObject);
+            PlayerLoader.playersRemain--;
+        }
     }
 
+    // What will happen when player moves left joystick
     public void OnMove(InputAction.CallbackContext ctx)
     {
         movementInput = ctx.ReadValue<Vector2>();
     }
 
+    // What will happen when player moves right joystick
     public void OnAim(InputAction.CallbackContext ctx)
     {
         aimInput = ctx.ReadValue<Vector2>();
     }
 
+    // What will happen when player presses left shoulder
     public void OnPush(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
@@ -88,6 +96,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // What will happen when player presses right shoulder
     public void OnPowerup(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
@@ -98,11 +107,16 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        // What will happen when player is pushed out of ring
         if (other.gameObject.tag == "Arena")
         {
-            Debug.Log("Killed");
+            // Set its position to origin
             transform.position = respawn.transform.position;
+
+            // Remove 1 health
             playerLife -= 1;
+
+            // Change healthbar size
             var newHealthBarSize = healthBarSectionSize * playerLife;
             healthBar.transform.localScale = new Vector3(newHealthBarSize, 1, 0);
         }
