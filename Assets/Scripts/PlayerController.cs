@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     // Player respawn point
     public GameObject respawn;
 
+    public GameObject healthBar;
+
+    private float healthBarSectionSize;
+
     // Controls variables
     private Vector2 movementInput;
     private Vector2 aimInput;
@@ -21,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         currentPlayerSpeed = basePlayerSpeed;
         respawn = GameObject.FindWithTag("Respawn");
+        healthBarSectionSize = healthBar.transform.localScale.x / 3;
     }
 
     // Update is called once per frame
@@ -91,26 +96,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Boundary")
-        {
-            Debug.Log("Killed");
-            transform.position = respawn.transform.position;
-            playerLife -= 1;
-        }
-
-        if (other.gameObject.tag == "Arena")
-        {
-            currentPlayerSpeed = basePlayerSpeed;
-        }
-    }
-
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Arena")
         {
-            currentPlayerSpeed = basePlayerSpeed * 0.6f;
+            Debug.Log("Killed");
+            transform.position = respawn.transform.position;
+            playerLife -= 1;
+            var newHealthBarSize = healthBarSectionSize * playerLife;
+            healthBar.transform.localScale = new Vector3(newHealthBarSize, 1, 0);
         }
     }
 }

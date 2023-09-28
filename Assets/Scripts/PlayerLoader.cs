@@ -7,19 +7,20 @@ using UnityEngine;
 public class PlayerLoader : MonoBehaviour
 {
     private int numPlayers = PlayerManager.numPlayers;
-    public PlayerInput playerInput;
     public GameObject player;
     public GameObject[] playerSpawns;
-    public Preset playerInputPreset;
+    public GameObject[] playerHealthbars;
+    public PlayerController playerScript;
 
-    // Start is called before the first frame update
     void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
         for (int i = 0; i < numPlayers; i++)
         {
+            playerHealthbars[i].SetActive(true);
             var newPlayer = PlayerInput.Instantiate(player, controlScheme: "Gamepad", pairWithDevices: new InputDevice[] { Gamepad.all[i] });
             newPlayer.transform.position = playerSpawns[i].transform.position;
+            playerScript = newPlayer.GetComponent<PlayerController>();
+            playerScript.healthBar = playerHealthbars[i].transform.GetChild(1).gameObject;
         }
     }
 }
