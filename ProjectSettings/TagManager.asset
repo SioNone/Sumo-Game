@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Arena
   - Boundary
+  - Healthbar
+  - Force Pickup
+  - Speed Pickup
   layers:
   - Default
   - TransparentFX
