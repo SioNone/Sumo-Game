@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Player stats
-    public float basePlayerSpeed, currentPlayerSpeed, playerLife, force;
+    public float basePlayerSpeed, currentPlayerSpeed, playerLife, force, pushCooldown;
+    public float nextPush = 0;
 
     // Player respawn point
     public GameObject respawn;
@@ -14,11 +15,12 @@ public class PlayerController : MonoBehaviour
     // Controls variables
     private Vector2 movementInput;
     private Vector2 aimInput;
-    private bool leftShoulder;
+    private bool leftShoulder, rightShoulder;
 
     void Start()
     {
         currentPlayerSpeed = basePlayerSpeed;
+        respawn = GameObject.FindWithTag("Respawn");
     }
 
     // Update is called once per frame
@@ -34,9 +36,10 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.right);
 
         // If Raycast Hits an object, and that object is tagged player, and its less than or equal to 1 unit away from the player, and left shoulder is pressed
-        if(hit.collider && hit.collider.tag == "Player" && hit.distance <= 1f && leftShoulder)
+        if(hit.collider && hit.collider.tag == "Player" && hit.distance <= 1f && leftShoulder && Time.time > nextPush)
         {
             Debug.Log("Pushed");
+            nextPush = Time.time + pushCooldown;
 
             // Find direction for other object to be pushed in
             var direction = (transform.position - hit.transform.position).normalized;
@@ -45,6 +48,12 @@ public class PlayerController : MonoBehaviour
             hit.transform.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * force, ForceMode2D.Impulse);
 
             // Reset left shoulder
+            leftShoulder = false;
+        } 
+        else if (!hit.collider && leftShoulder && Time.time > nextPush)
+        {
+            Debug.Log("Miss");
+            nextPush = Time.time + pushCooldown;
             leftShoulder = false;
         }
 
@@ -68,7 +77,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnPush(InputAction.CallbackContext ctx)
     {
-        leftShoulder = true;
+        if (ctx.performed)
+        {
+            leftShoulder = true;
+        }
+    }
+
+    public void OnPowerup(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            rightShoulder = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

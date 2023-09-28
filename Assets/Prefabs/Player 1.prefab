@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4041163519973425361}
   - component: {fileID: 7359662012862632613}
   - component: {fileID: 1720007791321806299}
-  - component: {fileID: 6115293222957406925}
+  - component: {fileID: 1037416534590181084}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 5139310921910885519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.924248, y: -1.2021227, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -251,9 +251,11 @@ MonoBehaviour:
   basePlayerSpeed: 5
   currentPlayerSpeed: 0
   playerLife: 3
-  force: 5
+  force: 10
+  pushCooldown: 1
+  nextPush: 0
   respawn: {fileID: 0}
---- !u!114 &6115293222957406925
+--- !u!114 &1037416534590181084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,7 +295,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 28b2d986-7df7-4e3c-a475-a6f6d3973980
-    m_ActionName: Gameplay/Move
+    m_ActionName: Gameplay/Move[/DualShock4GamepadHID/leftStick,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1720007791321806299}
@@ -309,7 +311,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 5514799d-85d2-46ab-b5d8-730e596baa61
-    m_ActionName: Gameplay/Aim
+    m_ActionName: Gameplay/Aim[/DualShock4GamepadHID/rightStick,/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1720007791321806299}
@@ -325,13 +327,25 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: e21429ea-f444-41e3-a2bb-052a075be9f5
-    m_ActionName: Gameplay/Push
+    m_ActionName: Gameplay/Push[/DualShock4GamepadHID/leftShoulder,/XInputControllerWindows/leftShoulder]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1720007791321806299}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPowerup
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 944a2158-9327-4779-83af-cd47d320b45c
-    m_ActionName: Gameplay/Powerup
+    m_ActionName: Gameplay/Powerup[/DualShock4GamepadHID/rightShoulder,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
