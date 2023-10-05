@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
-using UnityEditor.Presets;
 using UnityEngine;
 
 public class PlayerLoader : MonoBehaviour
