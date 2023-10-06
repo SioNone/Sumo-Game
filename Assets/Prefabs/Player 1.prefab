@@ -595,7 +595,7 @@ MonoBehaviour:
   currentPlayerSpeed: 0
   buffPlayerSpeed: 0
   playerLife: 3
-  force: 10
+  force: 20
   pushCooldown: 1
   nextPush: 0
   forcePickup: 0
