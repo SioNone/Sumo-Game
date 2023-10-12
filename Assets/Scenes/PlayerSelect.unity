@@ -1398,7 +1398,7 @@ MonoBehaviour:
 
     Right Stick: Aim
 
-    L Shoulder: Push'
+    R Shoulder: Push'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ed7181ade837f34d878c4f9a150b0fd, type: 2}
   m_sharedMaterial: {fileID: -6009871673397016340, guid: 8ed7181ade837f34d878c4f9a150b0fd, type: 2}

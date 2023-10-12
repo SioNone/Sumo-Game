@@ -4719,11 +4719,11 @@ PrefabInstance:
     - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
       propertyPath: pickupList.Array.data[0]
       value: 
-      objectReference: {fileID: 2580630803979686271, guid: 4aa4bde11a8748d4d83f0289ad7a3bc5, type: 3}
+      objectReference: {fileID: 1014908674119784091, guid: a51544488c70827449549b0c3cd82eee, type: 3}
     - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
       propertyPath: pickupList.Array.data[1]
       value: 
-      objectReference: {fileID: 7928761168626550443, guid: 6ecd27d5faad60c4fbfe722423a18b5e, type: 3}
+      objectReference: {fileID: 1268950116122839872, guid: 06278f5ef841a364993f6b04b4348f60, type: 3}
     - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
       propertyPath: playerSpawns.Array.data[0]
       value: 

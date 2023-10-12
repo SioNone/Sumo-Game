@@ -35,11 +35,14 @@ public class PhysicsPlayerController : MonoBehaviour
     private bool speedPickup;
     private bool forcePickup;
 
+    public float speedPickUpDuration;
+    public float speedPickUpLength;
+
     // Control stuff
     private Vector2 movementInput, aimInput;
     private bool leftShoulder, rightShoulder;
 
-    // Partcile Stuff
+    // Particle Stuff
     public GameObject sandParticles;
 
     // Respawn
@@ -110,6 +113,15 @@ public class PhysicsPlayerController : MonoBehaviour
         else
         {
             cooldownBar.gameObject.SetActive(true);
+        }
+
+        if (speedPickup || forcePickup)
+        {
+            pickupIndicator.SetActive(true);
+        }
+        else
+        {
+            pickupIndicator.SetActive(false);
         }
 
         // Player Healthbar Stuff
@@ -199,6 +211,22 @@ public class PhysicsPlayerController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Force Pickup")
+        {
+            forcePickup = true;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Speed Pickup")
+        {
+            speedPickUpLength = Time.time + speedPickUpDuration;
+            speedPickup = true;
+            Destroy(other.gameObject);
         }
     }
 }

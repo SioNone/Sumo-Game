@@ -12,7 +12,7 @@ public class MoveSpeedBuff : PowerUpSystem
     public override void Apply(GameObject target)
     {
 
-        target.GetComponent<PlayerController>().basePlayerSpeed += amount;
+        target.GetComponent<PhysicsPlayerController>().currentPlayerSpeed += amount;
         target.GetComponent<SpriteRenderer>().color = Color.red;
     }
 

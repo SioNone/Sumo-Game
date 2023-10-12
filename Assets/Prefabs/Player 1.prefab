@@ -5651,6 +5651,8 @@ MonoBehaviour:
   pushCooldown: 1
   rgdBody: {fileID: 7359662012862632613}
   pickupIndicator: {fileID: 0}
+  speedPickUpDuration: 0
+  speedPickUpLength: 5
   sandParticles: {fileID: 2803409444934654143}
   respawn: {fileID: 0}
   cooldownBar: {fileID: 3155511979221277888}

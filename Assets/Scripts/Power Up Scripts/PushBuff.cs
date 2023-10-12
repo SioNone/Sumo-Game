@@ -12,7 +12,7 @@ public class PushBuff : PowerUpSystem
         public override void Apply(GameObject target)
         {
 
-            target.GetComponent<PlayerController>().force += amount;
+            target.GetComponent<PhysicsPlayerController>().pushForce += amount;
             target.GetComponent<SpriteRenderer>().color = Color.blue;
         }
 
