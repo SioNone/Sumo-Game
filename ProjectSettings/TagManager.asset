@@ -9,11 +9,12 @@ TagManager:
   - Healthbar
   - Force Pickup
   - Speed Pickup
+  - Hurtbox
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Hurtbox
   - Water
   - UI
   - 

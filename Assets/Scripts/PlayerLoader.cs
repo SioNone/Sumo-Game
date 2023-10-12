@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerLoader : MonoBehaviour
@@ -24,7 +25,7 @@ public class PlayerLoader : MonoBehaviour
     public static int playersRemain;
 
     // Player Controller script
-    public PlayerController playerScript;
+    public PhysicsPlayerController playerScript;
 
     // Game Win Screen
     public GameObject gameWinScreen;
@@ -50,7 +51,7 @@ public class PlayerLoader : MonoBehaviour
             newPlayer.transform.position = playerSpawns[i].transform.position;
 
             // Accesses the player script
-            playerScript = newPlayer.GetComponent<PlayerController>();
+            playerScript = newPlayer.GetComponent<PhysicsPlayerController>();
 
             // Change colour of headband (Maybe a neater way of doing this)
             if (i == 0)
@@ -74,7 +75,7 @@ public class PlayerLoader : MonoBehaviour
             playerScript.pickupIndicator = playerIndicators[i];
 
             // Assign the healthbar to the player
-            playerScript.healthBar = playerHealthbars[i].transform.GetChild(1).gameObject;
+            playerScript.healthBar = playerHealthbars[i].transform.GetChild(1).GetComponent<Slider>();
         }
     }
 

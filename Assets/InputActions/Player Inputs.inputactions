@@ -67,8 +67,8 @@
                 },
                 {
                     "name": "",
-                    "id": "4aeef1c7-22e5-4659-a528-5ea1b7f830d1",
-                    "path": "<Gamepad>/leftShoulder",
+                    "id": "2bc50a19-a716-4706-899d-808d73fbc68c",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -78,8 +78,8 @@
                 },
                 {
                     "name": "",
-                    "id": "e2ca2e24-f7ee-4129-bce5-48ef9b2bf9b2",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "1ec2e348-d6fd-4ddd-aab0-408766764e54",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
