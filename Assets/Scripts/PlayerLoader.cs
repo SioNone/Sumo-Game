@@ -31,8 +31,8 @@ public class PlayerLoader : MonoBehaviour
     public GameObject gameWinScreen;
 
     // Pickup Cooldown
-    public float pickupCooldown, nextPickup;
-    public GameObject[] pickupList;
+    // public float pickupCooldown, nextPickup;
+    // public GameObject[] pickupList;
 
     void Start()
     {
@@ -82,11 +82,11 @@ public class PlayerLoader : MonoBehaviour
     void Update()
     {
         // Pickup Cooldown stuff
-        if (Time.time > nextPickup)
-        {
-            nextPickup = Time.time + pickupCooldown;
-            Instantiate(pickupList[Random.Range(0, pickupList.Length)], new Vector3(0, 0, 0), Quaternion.identity);
-        }
+        //if (Time.time > nextPickup)
+        //{
+        //    nextPickup = Time.time + pickupCooldown;
+        //    Instantiate(pickupList[Random.Range(0, pickupList.Length)], new Vector3(0, 0, 0), Quaternion.identity);
+        //}
 
         // If one or somehow less players remain set the game win screen to true
         if (playersRemain <= 1)

@@ -54,6 +54,10 @@ public class PhysicsPlayerController : MonoBehaviour
     // Health Bar
     public Slider healthBar;
 
+    // Stun
+    public bool isStunned = false;
+    public float stunRecovery;
+
     void Start()
     {
         // Set Current Player Speed to Base Player Speed by Default
@@ -78,14 +82,18 @@ public class PhysicsPlayerController : MonoBehaviour
         movement = new Vector2(movementInput.x, movementInput.y);
 
         // Movement
-        if (movement != Vector2.zero)
+        if (movement != Vector2.zero && !isStunned)
         {
             transform.position += new Vector3(movementInput.x * currentPlayerSpeed * Time.deltaTime, movementInput.y * currentPlayerSpeed * Time.deltaTime, 0);
             sandParticles.SetActive(true);
         }
-        else
+        else if (movement == Vector2.zero)
         {
             sandParticles.SetActive(false);
+        } 
+        else if (isStunned)
+        {
+            StartCoroutine(Recovery(stunRecovery));
         }
 
         if (speedPickup || forcePickup)
@@ -152,6 +160,12 @@ public class PhysicsPlayerController : MonoBehaviour
         }
     }
 
+    public IEnumerator Recovery(float recovery)
+    {
+        yield return new WaitForSeconds(recovery);
+        isStunned = false;
+    }
+
     // What will happen when player moves left joystick
     public void OnMove(InputAction.CallbackContext ctx)
     {
@@ -189,6 +203,7 @@ public class PhysicsPlayerController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = true;
+            other.gameObject.GetComponent<PhysicsPlayerController>().isStunned = true;
             playerPresent = other.transform;
         }
     }
