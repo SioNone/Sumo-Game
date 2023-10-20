@@ -5644,7 +5644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9490e73710a1cd748b2f3461d5427542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePlayerSpeed: 2.5
+  basePlayerSpeed: 5
   currentPlayerSpeed: 0
   playerLife: 3
   pushForce: 5
@@ -5659,6 +5659,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   isStunned: 0
   stunRecovery: 0.25
+  pushSFX: {fileID: 8300000, guid: d26f55d986000ca43a638738b2ce3ff1, type: 3}
+  deathSFX: {fileID: 8300000, guid: 4bc2ba5c75456ac4e9d2b38878547e21, type: 3}
+  pickupSFX: {fileID: 8300000, guid: fadf023fe7584f942a149be3404bd5c7, type: 3}
 --- !u!114 &1037416534590181084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5953,7 +5956,7 @@ Transform:
   m_GameObject: {fileID: 5760716388302741010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.767, y: 0, z: 0}
+  m_LocalPosition: {x: 0.808, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6002,7 +6005,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.76, y: 1.49}
+  m_Size: {x: 0.52, y: 1.25}
   m_EdgeRadius: 0
 --- !u!1 &6415928777418723053
 GameObject:

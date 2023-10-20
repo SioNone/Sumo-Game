@@ -58,6 +58,18 @@ public class PhysicsPlayerController : MonoBehaviour
     public bool isStunned = false;
     public float stunRecovery;
 
+    // SFX
+    [SerializeField]
+    private AudioClip pushSFX;
+
+    [SerializeField]
+    private AudioClip deathSFX;
+
+    [SerializeField]
+    private AudioClip pickupSFX;
+
+    private GameObject otherPlayer;
+
     void Start()
     {
         // Set Current Player Speed to Base Player Speed by Default
@@ -182,6 +194,10 @@ public class PhysicsPlayerController : MonoBehaviour
     {
         if (ctx.performed && playerInRange && Time.time > nextPush)
         {
+            SFXManager.instance.PlaySFX(pushSFX, transform, 0.75f);
+
+            otherPlayer.GetComponent<PhysicsPlayerController>().isStunned = true;
+
             nextPush = Time.time + pushCooldown;
             currentPushCooldown = 0f;
 
@@ -202,8 +218,8 @@ public class PhysicsPlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            otherPlayer = other.gameObject;
             playerInRange = true;
-            other.gameObject.GetComponent<PhysicsPlayerController>().isStunned = true;
             playerPresent = other.transform;
         }
     }
@@ -213,6 +229,8 @@ public class PhysicsPlayerController : MonoBehaviour
         // What will happen when player is pushed out of ring
         if (other.gameObject.tag == "Arena")
         {
+            SFXManager.instance.PlaySFX(deathSFX, transform, 1f);
+
             // Set its position to origin
             transform.position = respawn.transform.position;
 
@@ -233,12 +251,14 @@ public class PhysicsPlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Force Pickup")
         {
+            SFXManager.instance.PlaySFX(pickupSFX, transform, 1f);
             forcePickup = true;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "Speed Pickup")
         {
+            SFXManager.instance.PlaySFX(pickupSFX, transform, 1f);
             speedPickUpLength = Time.time + speedPickUpDuration;
             speedPickup = true;
             Destroy(other.gameObject);
