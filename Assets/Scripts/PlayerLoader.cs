@@ -30,6 +30,8 @@ public class PlayerLoader : MonoBehaviour
     // Game Win Screen
     public GameObject gameWinScreen;
 
+    public List<Sprite> playerSprites;
+
     // Pickup Cooldown
     // public float pickupCooldown, nextPickup;
     // public GameObject[] pickupList;
@@ -49,6 +51,8 @@ public class PlayerLoader : MonoBehaviour
 
             // Moves the player to their spawn point
             newPlayer.transform.position = playerSpawns[i].transform.position;
+
+            newPlayer.GetComponent<SpriteRenderer>().sprite = playerSprites[i];
 
             // Accesses the player script
             playerScript = newPlayer.GetComponent<PhysicsPlayerController>();
