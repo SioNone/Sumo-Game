@@ -68,6 +68,9 @@ public class PhysicsPlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip pickupSFX;
 
+    // Animator
+    private Animator playerAnim;
+
     private GameObject otherPlayer;
 
     void Start()
@@ -80,6 +83,9 @@ public class PhysicsPlayerController : MonoBehaviour
 
         // Get Rigidbody
         rgdBody = GetComponent<Rigidbody2D>();
+
+        // Get Animator
+        playerAnim = GetComponent<Animator>();
 
         // Get Respawn Point
         respawn = GameObject.FindWithTag("Respawn");
@@ -195,6 +201,7 @@ public class PhysicsPlayerController : MonoBehaviour
         if (ctx.performed && playerInRange && Time.time > nextPush)
         {
             SFXManager.instance.PlaySFX(pushSFX, transform, 0.75f);
+            playerAnim.SetTrigger("isPushing");
 
             otherPlayer.GetComponent<PhysicsPlayerController>().isStunned = true;
 

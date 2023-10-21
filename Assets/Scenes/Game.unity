@@ -5082,6 +5082,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
+      propertyPath: playerAnimators.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
       propertyPath: playerSpawns.Array.data[0]
       value: 
       objectReference: {fileID: 1424175125}
@@ -5121,6 +5125,22 @@ PrefabInstance:
       propertyPath: playerSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: 4c24ded90a58dc94ca17b6eda1b1c04e, type: 3}
+    - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
+      propertyPath: playerAnimators.Array.data[0]
+      value: 
+      objectReference: {fileID: 9100000, guid: 19142f1d96760f1489d0217b81237b57, type: 2}
+    - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
+      propertyPath: playerAnimators.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 11afacb7e01e1c343a7882a0bf77e575, type: 2}
+    - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
+      propertyPath: playerAnimators.Array.data[2]
+      value: 
+      objectReference: {fileID: 9100000, guid: e9bcb3cc5be5e234dbf5d9fbfb5f2240, type: 2}
+    - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
+      propertyPath: playerAnimators.Array.data[3]
+      value: 
+      objectReference: {fileID: 9100000, guid: 3ccc9e88652760f4cb8ecf4b082ef470, type: 2}
     - target: {fileID: 5452320592734608053, guid: 986d9e01f5d3e694b8c8234042332811, type: 3}
       propertyPath: playerHealthbars.Array.data[0]
       value: 
