@@ -53,24 +53,6 @@ public class PlayerLoader : MonoBehaviour
             // Accesses the player script
             playerScript = newPlayer.GetComponent<PhysicsPlayerController>();
 
-            // Change colour of headband (Maybe a neater way of doing this)
-            if (i == 0)
-            {
-                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 0f, 0f, 1f);
-            } 
-            else if (i == 1)
-            {
-                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(0f, 0f, 1f, 1f);
-            }
-            else if (i == 2)
-            {
-                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(0f, 1f, 0f, 1f);
-            } 
-            else if (i == 3)
-            {
-                newPlayer.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 0f, 1f, 1f);
-            }
-
             // Assign Pickup Indicator to player
             playerScript.pickupIndicator = playerIndicators[i];
 

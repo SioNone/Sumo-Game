@@ -167,7 +167,7 @@ public class PhysicsPlayerController : MonoBehaviour
         // Aim
         if (aimDirection != Vector2.zero)
         {
-            float aimHeading = Mathf.Atan2(aimInput.y, aimInput.x);
+            float aimHeading = Mathf.Atan2(-aimInput.y, -aimInput.x);
             transform.rotation = Quaternion.Euler(0f, 0f, aimHeading * Mathf.Rad2Deg);
         }
     }
