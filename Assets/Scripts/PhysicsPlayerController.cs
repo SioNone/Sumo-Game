@@ -68,6 +68,9 @@ public class PhysicsPlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip pickupSFX;
 
+    // Player Number
+    public int playerNumber;
+
     // Animator
     private Animator playerAnim;
 

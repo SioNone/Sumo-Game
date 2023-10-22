@@ -66,6 +66,9 @@ public class PlayerLoader : MonoBehaviour
             // Accesses the player script
             playerScript = newPlayer.GetComponent<PhysicsPlayerController>();
 
+            // Assigns number to player
+            playerScript.playerNumber = i + 1;
+
             // Assign Pickup Indicator to player
             playerScript.pickupIndicator = playerIndicators[i];
 
