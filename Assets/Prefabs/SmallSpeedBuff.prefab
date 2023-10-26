@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7051700889623739443}
   - component: {fileID: 843985475947152940}
   - component: {fileID: 2538835647483727636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallSpeedBuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}

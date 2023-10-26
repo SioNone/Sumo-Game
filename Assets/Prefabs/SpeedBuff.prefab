@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4937649284350358854}
   - component: {fileID: 8439446390384124967}
   - component: {fileID: 5786777231373863501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpeedBuff
   m_TagString: Speed Pickup
   m_Icon: {fileID: 0}

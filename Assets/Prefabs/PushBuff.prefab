@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 574172194636999546}
   - component: {fileID: 4780232758907886101}
   - component: {fileID: 3630060859148925705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PushBuff
   m_TagString: Force Pickup
   m_Icon: {fileID: 0}
