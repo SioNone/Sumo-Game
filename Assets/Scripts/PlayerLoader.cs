@@ -22,6 +22,9 @@ public class PlayerLoader : MonoBehaviour
     // List of player pickup Indicators
     public GameObject[] playerIndicators;
 
+    // Player Leaderboard Positions
+    public int[] playerLeaderboard;
+
     // How many players remain
     public static int playersRemain;
 
