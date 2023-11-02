@@ -21,9 +21,6 @@ public class PlayerLoader : MonoBehaviour
     // List of player pickup Indicators
     public GameObject[] playerIndicators;
 
-    // Player Leaderboard Positions
-    public int[] playerLeaderboard;
-
     // How many players remain
     public static int playersRemain;
 
@@ -91,8 +88,8 @@ public class PlayerLoader : MonoBehaviour
         // If one or somehow less players remain set the game win screen to true
         if (playersRemain <= 1)
         {
-            leaderboard.GameComplete();
             gameWinScreen.SetActive(true);
+            leaderboard.GameComplete();
         }
     }
 }
