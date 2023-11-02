@@ -11,7 +11,7 @@ public class Leaderboard : MonoBehaviour
     [SerializeField]
     private GameObject playerEntry;
 
-    public static List<string> playerList;
+    public List<string> playerList;
 
     // Start is called before the first frame update
     void Start()
