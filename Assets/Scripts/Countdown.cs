@@ -13,6 +13,11 @@ public class Countdown : MonoBehaviour
 
     public static bool gameStarted = false;
 
+    void Start()
+    {
+        gameStarted = false;
+    }
+
     void Update()
     {
         if (countdown <= 1)

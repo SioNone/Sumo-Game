@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -33,7 +34,15 @@ public class PlayerLoader : MonoBehaviour
     // List of Player Sprites
     public List<Sprite> playerSprites;
 
-    public Leaderboard leaderboard;
+    public Leaderboard leaderboardScript;
+
+    [SerializeField]
+    private GameObject leaderboard;
+
+    [SerializeField]
+    private GameObject playerEntry;
+
+    private bool hasDisplayed = false;
 
     // Pickup Cooldown
     // public float pickupCooldown, nextPickup;
@@ -43,7 +52,7 @@ public class PlayerLoader : MonoBehaviour
     {
         playersRemain = numPlayers;
 
-        leaderboard = GameObject.FindWithTag("Leaderboard").GetComponent<Leaderboard>();
+        leaderboardScript = GameObject.FindWithTag("Leaderboard").GetComponent<Leaderboard>();
 
         // Adds new players based on how many are selected at start screen and assigns relevant gameobjects to them
         for (int i = 0; i < numPlayers; i++)
@@ -89,7 +98,22 @@ public class PlayerLoader : MonoBehaviour
         if (playersRemain <= 1)
         {
             gameWinScreen.SetActive(true);
-            leaderboard.GameComplete();
+            if (!hasDisplayed)
+            {
+                PhysicsPlayerController playerScript = GameObject.FindWithTag("Player").GetComponent<PhysicsPlayerController>();
+                List<string> playerList = leaderboardScript.GameComplete();
+                playerList.Add(playerScript.playerNumber.ToString());
+                int j = 1;
+                for (int i = playerList.Count - 1; i > -1; i--)
+                {
+                    GameObject entry = Instantiate(playerEntry);
+                    entry.transform.SetParent(leaderboard.gameObject.transform, false);
+                    TMP_Text entryText = entry.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+                    entryText.text = j + ") " + "Player " + playerList[i];
+                    j++;
+                }
+                hasDisplayed = true;
+            }
         }
     }
 }

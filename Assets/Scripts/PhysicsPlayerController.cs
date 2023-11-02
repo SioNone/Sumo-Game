@@ -170,7 +170,7 @@ public class PhysicsPlayerController : MonoBehaviour
         {
             Destroy(gameObject);
             PlayerLoader.playersRemain--;
-            leaderboard.UpdateLeaderboard(playerNumber.ToString());
+            leaderboard.playerList.Add(playerNumber.ToString());
         }
     }
 
@@ -211,18 +211,21 @@ public class PhysicsPlayerController : MonoBehaviour
 
     public void OnPush(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && playerInRange && Time.time > nextPush)
+        if (ctx.performed && Time.time > nextPush)
         {
             SFXManager.instance.PlaySFX(pushSFX, transform, 0.75f);
             playerAnim.SetTrigger("isPushing");
 
-            otherPlayer.GetComponent<PhysicsPlayerController>().isStunned = true;
-
+            if (playerInRange)
+            {
+                otherPlayer.GetComponent<PhysicsPlayerController>().isStunned = true;
+                var direction = (transform.position - playerPresent.position).normalized;
+                playerPresent.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * (pushForce * 1.5f), ForceMode2D.Impulse);
+            }
+            
             nextPush = Time.time + pushCooldown;
             currentPushCooldown = 0f;
 
-            var direction = (transform.position - playerPresent.position).normalized;
-            playerPresent.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * (pushForce * 1.5f), ForceMode2D.Impulse);
         }
     }
 
