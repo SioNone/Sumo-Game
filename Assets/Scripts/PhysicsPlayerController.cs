@@ -108,7 +108,7 @@ public class PhysicsPlayerController : MonoBehaviour
         movement = new Vector2(movementInput.x, movementInput.y);
 
         // Movement
-        if (movement != Vector2.zero && !isStunned)
+        if (movement != Vector2.zero && !isStunned && Countdown.gameStarted)
         {
             transform.position += new Vector3(movementInput.x * currentPlayerSpeed * Time.deltaTime, movementInput.y * currentPlayerSpeed * Time.deltaTime, 0);
             sandParticles.SetActive(true);
