@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_NotificationBehavior: 0
   m_MaxPlayerCount: -1
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -4864,7 +4864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f9dc5a505a87f41ac890edf7970dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arenaShrinkRate: 0.025
+  arenaShrinkRate: 0.01
   minArenaSize: 1
   arenaCircle: {fileID: 1684733203}
 --- !u!1 &2129527499

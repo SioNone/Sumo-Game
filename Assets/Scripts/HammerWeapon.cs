@@ -6,17 +6,18 @@ public class HammerWeapon : MonoBehaviour
 {
     private Rigidbody2D rgdBody;
 
-    // Start is called before the first frame update
     void Start()
     {
         rgdBody = GetComponent<Rigidbody2D>();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnColliderEnter2D(Collider2D other)
     {
+        Debug.Log("Collision");
         if (other.gameObject.tag == "Player")
         {
-            float angularVelo = rgdBody.angularVelocity;
+            Debug.Log("HIT !");
+            Vector2 angularVelo = rgdBody.velocity;
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(other.gameObject.transform.position * angularVelo);
         }
     }

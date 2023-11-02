@@ -13,7 +13,7 @@ public class MoveSpeedBuff : PowerUpSystem
     {
 
         target.GetComponent<PhysicsPlayerController>().currentPlayerSpeed += amount;
-        target.GetComponent<SpriteRenderer>().color = Color.red;
+        // target.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
 }

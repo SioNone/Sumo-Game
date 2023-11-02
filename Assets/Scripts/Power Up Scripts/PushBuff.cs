@@ -13,7 +13,7 @@ public class PushBuff : PowerUpSystem
         {
 
             target.GetComponent<PhysicsPlayerController>().pushForce += amount;
-            target.GetComponent<SpriteRenderer>().color = Color.blue;
+            // target.GetComponent<SpriteRenderer>().color = Color.blue;
         }
 
     }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b79f0f00e25da041a6c99991276e4f3, type: 3}
   m_Name: PushBuff
   m_EditorClassIdentifier: 
-  amount: 5
+  amount: 4
