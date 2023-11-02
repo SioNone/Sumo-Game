@@ -5398,6 +5398,7 @@ MonoBehaviour:
   deathSFX: {fileID: 8300000, guid: 4bc2ba5c75456ac4e9d2b38878547e21, type: 3}
   pickupSFX: {fileID: 8300000, guid: fadf023fe7584f942a149be3404bd5c7, type: 3}
   playerNumber: 0
+  playerAnimator: 
 --- !u!114 &1037416534590181084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5502,7 +5503,7 @@ Animator:
   m_GameObject: {fileID: 5139310921910885519}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19142f1d96760f1489d0217b81237b57, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

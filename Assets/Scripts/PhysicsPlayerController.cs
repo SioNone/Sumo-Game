@@ -74,6 +74,8 @@ public class PhysicsPlayerController : MonoBehaviour
     // Animator
     private Animator playerAnim;
 
+    public string playerAnimator;
+
     private GameObject otherPlayer;
 
     void Start()
@@ -89,6 +91,9 @@ public class PhysicsPlayerController : MonoBehaviour
 
         // Get Animator
         playerAnim = GetComponent<Animator>();
+
+        // Set Player Anim Bool
+        playerAnim.SetBool(playerAnimator, true);
 
         // Get Respawn Point
         respawn = GameObject.FindWithTag("Respawn");

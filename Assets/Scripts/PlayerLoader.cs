@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerLoader : MonoBehaviour
@@ -37,9 +36,6 @@ public class PlayerLoader : MonoBehaviour
     // List of Player Sprites
     public List<Sprite> playerSprites;
 
-    // List of Player Animators
-    public List<AnimatorController> playerAnimators;
-
     // Pickup Cooldown
     // public float pickupCooldown, nextPickup;
     // public GameObject[] pickupList;
@@ -63,14 +59,13 @@ public class PlayerLoader : MonoBehaviour
             // Assigns the player the correct sprite
             newPlayer.GetComponent<SpriteRenderer>().sprite = playerSprites[i];
 
-            // Assigns the player the correct Animator
-            newPlayer.GetComponent<Animator>().runtimeAnimatorController = playerAnimators[i];
-
             // Accesses the player script
             playerScript = newPlayer.GetComponent<PhysicsPlayerController>();
 
             // Assigns number to player
             playerScript.playerNumber = i + 1;
+
+            playerScript.playerAnimator = "player" + (i + 1).ToString();
 
             // Assign Pickup Indicator to player
             playerScript.pickupIndicator = playerIndicators[i];
