@@ -10,6 +10,7 @@ TagManager:
   - Force Pickup
   - Speed Pickup
   - Hurtbox
+  - Leaderboard
   layers:
   - Default
   - TransparentFX

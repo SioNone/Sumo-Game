@@ -74,6 +74,8 @@ public class PhysicsPlayerController : MonoBehaviour
     // Animator
     private Animator playerAnim;
 
+    public Leaderboard leaderboard;
+
     public string playerAnimator;
 
     private GameObject otherPlayer;
@@ -97,6 +99,8 @@ public class PhysicsPlayerController : MonoBehaviour
 
         // Get Respawn Point
         respawn = GameObject.FindWithTag("Respawn");
+
+        leaderboard = GameObject.FindWithTag("Leaderboard").GetComponent<Leaderboard>();
 
         sandParticles.SetActive(false);
     }
@@ -165,6 +169,7 @@ public class PhysicsPlayerController : MonoBehaviour
         if (currentPlayerLife <= 0)
         {
             Destroy(gameObject);
+            leaderboard.UpdateLeaderboard(playerNumber.ToString());
             PlayerLoader.playersRemain--;
         }
     }
