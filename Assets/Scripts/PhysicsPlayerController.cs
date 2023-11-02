@@ -169,8 +169,8 @@ public class PhysicsPlayerController : MonoBehaviour
         if (currentPlayerLife <= 0)
         {
             Destroy(gameObject);
-            leaderboard.UpdateLeaderboard(playerNumber.ToString());
             PlayerLoader.playersRemain--;
+            leaderboard.UpdateLeaderboard(playerNumber.ToString());
         }
     }
 

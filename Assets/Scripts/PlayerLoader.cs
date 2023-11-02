@@ -36,6 +36,8 @@ public class PlayerLoader : MonoBehaviour
     // List of Player Sprites
     public List<Sprite> playerSprites;
 
+    public Leaderboard leaderboard;
+
     // Pickup Cooldown
     // public float pickupCooldown, nextPickup;
     // public GameObject[] pickupList;
@@ -43,6 +45,8 @@ public class PlayerLoader : MonoBehaviour
     void Start()
     {
         playersRemain = numPlayers;
+
+        leaderboard = GameObject.FindWithTag("Leaderboard").GetComponent<Leaderboard>();
 
         // Adds new players based on how many are selected at start screen and assigns relevant gameobjects to them
         for (int i = 0; i < numPlayers; i++)
@@ -87,6 +91,7 @@ public class PlayerLoader : MonoBehaviour
         // If one or somehow less players remain set the game win screen to true
         if (playersRemain <= 1)
         {
+            leaderboard.GameComplete();
             gameWinScreen.SetActive(true);
         }
     }
