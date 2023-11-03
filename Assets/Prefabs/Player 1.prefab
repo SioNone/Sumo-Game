@@ -5382,7 +5382,7 @@ MonoBehaviour:
   basePlayerSpeed: 5
   currentPlayerSpeed: 0
   playerLife: 3
-  pushForce: 5
+  pushForce: 6.5
   pushCooldown: 1
   rgdBody: {fileID: 7359662012862632613}
   pickupIndicator: {fileID: 0}
@@ -5393,11 +5393,12 @@ MonoBehaviour:
   cooldownBar: {fileID: 6360931804965183659}
   healthBar: {fileID: 0}
   isStunned: 0
-  stunRecovery: 0.25
+  stunRecovery: 0.5
   pushSFX: {fileID: 8300000, guid: d26f55d986000ca43a638738b2ce3ff1, type: 3}
   deathSFX: {fileID: 8300000, guid: 4bc2ba5c75456ac4e9d2b38878547e21, type: 3}
   pickupSFX: {fileID: 8300000, guid: fadf023fe7584f942a149be3404bd5c7, type: 3}
   playerNumber: 0
+  leaderboard: {fileID: 0}
   playerAnimator: 
 --- !u!114 &1037416534590181084
 MonoBehaviour:

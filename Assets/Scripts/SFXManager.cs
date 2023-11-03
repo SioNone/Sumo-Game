@@ -27,6 +27,6 @@ public class SFXManager : MonoBehaviour
 
         audioSource.Play();
 
-        Destroy(audioSource, audioSource.clip.length);
+        Destroy(audioSource, 5f);
     }
 }

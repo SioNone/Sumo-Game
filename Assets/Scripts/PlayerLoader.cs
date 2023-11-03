@@ -100,9 +100,11 @@ public class PlayerLoader : MonoBehaviour
             gameWinScreen.SetActive(true);
             if (!hasDisplayed)
             {
-                PhysicsPlayerController playerScript = GameObject.FindWithTag("Player").GetComponent<PhysicsPlayerController>();
+                GameObject player = GameObject.FindWithTag("Player");
+                PhysicsPlayerController playerScript = player.GetComponent<PhysicsPlayerController>();
                 List<string> playerList = leaderboardScript.GameComplete();
                 playerList.Add(playerScript.playerNumber.ToString());
+                Destroy(player);
                 int j = 1;
                 for (int i = playerList.Count - 1; i > -1; i--)
                 {

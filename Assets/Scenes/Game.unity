@@ -320,9 +320,9 @@ RectTransform:
   - {fileID: 269654086}
   m_Father: {fileID: 523461926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 735, y: -363.6024}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -200, y: 140}
   m_SizeDelta: {x: 400, y: 127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &83874749
@@ -605,7 +605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -193.60239}
+  m_AnchoredPosition: {x: 200, y: -165}
   m_SizeDelta: {x: 375, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173415842
@@ -681,7 +681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -225, y: -193.60239}
+  m_AnchoredPosition: {x: -200, y: -165}
   m_SizeDelta: {x: 375, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &193801036
@@ -1017,7 +1017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 225, y: 91.39761}
+  m_AnchoredPosition: {x: 200, y: 55}
   m_SizeDelta: {x: 375, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330473711
@@ -1952,9 +1952,9 @@ RectTransform:
   - {fileID: 1059054508}
   m_Father: {fileID: 523461926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 735, y: 432.7026}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -200, y: -80}
   m_SizeDelta: {x: 400, y: 127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &844833929
@@ -2775,9 +2775,9 @@ RectTransform:
   - {fileID: 1126148597}
   m_Father: {fileID: 523461926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -735, y: -363.6024}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 140}
   m_SizeDelta: {x: 400, y: 127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1209358650
@@ -3198,9 +3198,9 @@ RectTransform:
   - {fileID: 1801548793}
   m_Father: {fileID: 523461926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -735, y: 432.7026}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -80}
   m_SizeDelta: {x: 400, y: 127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1424175125
@@ -4009,7 +4009,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -4028,7 +4028,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.0000000018626451, y: -0.02}
   serializedVersion: 2
-  m_Radius: 4.6
+  m_Radius: 4.48
 --- !u!1 &1707985611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,11 +4123,11 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 0
+  m_Spacing: -200
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -4211,7 +4211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -225, y: 91.39761}
+  m_AnchoredPosition: {x: -200, y: 55}
   m_SizeDelta: {x: 375, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712079508
@@ -4309,7 +4309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Complete
+  m_text: LEADERBOARD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ed7181ade837f34d878c4f9a150b0fd, type: 2}
   m_sharedMaterial: {fileID: -6009871673397016340, guid: 8ed7181ade837f34d878c4f9a150b0fd, type: 2}

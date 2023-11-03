@@ -75,6 +75,11 @@ public class PlayerManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void PlayWarning(int numSelected)
     {
         controllerWarning.SetActive(true);

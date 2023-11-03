@@ -213,11 +213,11 @@ public class PhysicsPlayerController : MonoBehaviour
     {
         if (ctx.performed && Time.time > nextPush)
         {
-            SFXManager.instance.PlaySFX(pushSFX, transform, 0.75f);
             playerAnim.SetTrigger("isPushing");
 
             if (playerInRange)
             {
+                SFXManager.instance.PlaySFX(pushSFX, transform, 0.75f);
                 otherPlayer.GetComponent<PhysicsPlayerController>().isStunned = true;
                 var direction = (transform.position - playerPresent.position).normalized;
                 playerPresent.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * (pushForce * 1.5f), ForceMode2D.Impulse);
